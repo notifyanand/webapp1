@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title> Home Page </title>
+    </head>
+    <body>
+        <h1> Address Book Application </h1>
+        <form name='ageForm' action="/addressbook" method="POST">
+            <label > Please enter your Name :</label> <input type="text" name="name" id="name"> 
+            <label > Please enter your Phone :</label> <input type="number" name="phone" id="phone"> 
+            <input type="submit" value="Submit">
+        </form>
+        <h2> Address Book </h2>
+
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>ID</th>
+                <th>Delete</th>
+            </tr>
+            {% for contact in contacts %}
+                <tr>
+                    <td>{{ contact.name }}</td>
+                    <td>{{ contact.phone }}</td>
+                    <td>{{ contact.id }}</td>
+                    <td> <a href="/addressbook?action=delete&id={{contact.id}}">Delete</a>  </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>

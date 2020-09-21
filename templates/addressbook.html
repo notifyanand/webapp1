@@ -1,21 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title> Home Page </title>
-    </head>
-    <body>
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="mx-auto" style="width: 900px;">
         <h1> Address Book Application </h1>
-        <form name='ageForm' action="/addressbook" method="POST">
-            <label > Please enter your Name :</label> <input type="text" name="name" id="name"> 
-            <label > Please enter your Phone :</label> <input type="number" name="phone" id="phone"> 
-            <input type="submit" value="Submit">
-        </form>
+        <div class="form">
+            <form name='ageForm' action="/addressbook" method="POST">
+                <table class="table table-borderless" >
+                    <tr> 
+                        <td> <label > Please enter your Name :</label> </td> 
+                        <td> <input type="text" name="name" id="name"> </td>
+                    </tr>
+                    <tr> 
+                        <td> <label > Please enter your Phone :</label> </td> 
+                        <td> <input type="number" name="phone" id="phone"> </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">  <input type="submit" value="Submit"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+
         <h2> Address Book </h2>
 
-        <table>
+        <table class="table table-striped">
             <tr>
                 <th>Name</th>
                 <th>Phone</th>
@@ -31,5 +39,5 @@
                 </tr>
             {% endfor %}
         </table>
-    </body>
-</html>
+    </div>
+{% endblock %}

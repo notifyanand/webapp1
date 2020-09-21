@@ -1,9 +1,11 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
+from flask_bootstrap import Bootstrap
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///addressbook.db'
 db = SQLAlchemy(app)
+Bootstrap(app)
 
 class Person:
   def __init__(self, name, phone):
